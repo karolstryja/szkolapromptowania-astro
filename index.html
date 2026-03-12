@@ -497,7 +497,161 @@
         transform: translateY(0);
       }
     }
+
+    /* ===== DARK MODE — inline overrides ===== */
+    /* Smooth transitions */
+    body, .section, .navbar, .navbar-no-shadow-container,
+    .pricing-wrap, .pricing-inner-wrap,
+    .testimonial-slider-content-wrapper,
+    .contact-input, .service-line {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      background: none;
+      border: 1.5px solid var(--border-color, #ececec);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+    .theme-toggle:hover {
+      background-color: var(--shape);
+    }
+    .theme-icon.moon { display: none; }
+    .theme-icon.sun { display: block; }
+    [data-theme="dark"] .theme-icon.moon { display: block; }
+    [data-theme="dark"] .theme-icon.sun { display: none; }
+
+    /* Navbar background in dark mode */
+    [data-theme="dark"] .navbar-no-shadow-container {
+      background-color: var(--bg-body);
+    }
+    [data-theme="dark"] .navbar {
+      background-color: var(--bg-body);
+    }
+
+    /* Logo inversion */
+    [data-theme="dark"] .navbar-brand .image {
+      filter: invert(1);
+    }
+
+    /* Blog post titles (hardcoded inline style="color:rgb(9,8,14)") */
+    [data-theme="dark"] .project-title.v1 {
+      color: var(--text-primary) !important;
+    }
+
+    /* Blog short text */
+    [data-theme="dark"] .blog-short-text {
+      color: var(--gray-color);
+    }
+
+    /* FAQ section — slightly lighter dark to differentiate */
+    [data-theme="dark"] .faq-section {
+      background-color: #332a1f !important;
+    }
+
+    /* CTA button — stays amber with dark text in both modes */
+    [data-theme="dark"] .primary-btn-wrap .button-text {
+      color: #09080e !important;
+    }
+    [data-theme="dark"] .primary-btn-wrap .arrow-01 {
+      filter: brightness(0) !important;
+    }
+
+    /* Logo marquee inversion */
+    [data-theme="dark"] .logo-marquee-track .logo {
+      filter: invert(1) brightness(1.5);
+      opacity: 0.5;
+    }
+    [data-theme="dark"] .logo-marquee-track .logo:hover {
+      opacity: 0.8;
+    }
+
+    /* Service accordion icons */
+    [data-theme="dark"] .sevice-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    /* Service expand content */
+    [data-theme="dark"] .service-expand-inner p {
+      color: var(--text-primary);
+    }
+
+    /* Images subtle brightness reduction */
+    [data-theme="dark"] .project-image-wrap img,
+    [data-theme="dark"] .banner-image-wrap img {
+      filter: brightness(0.88);
+    }
+
+    /* Banner subtitle */
+    [data-theme="dark"] .banner-subtittle {
+      color: var(--gray-color);
+    }
+
+    /* About section stats */
+    [data-theme="dark"] .about-number-title {
+      color: var(--text-primary);
+    }
+
+    /* Read time text */
+    [data-theme="dark"] .read-time {
+      color: var(--gray-color);
+    }
+
+    /* Blog side nav arrows */
+    [data-theme="dark"] .blog-side-nav {
+      color: var(--primary);
+    }
+
+    /* Pricing text */
+    [data-theme="dark"] .pricing-text {
+      color: var(--gray-color);
+    }
+    [data-theme="dark"] .tick-text {
+      color: var(--text-primary);
+    }
+
+    /* Contact form section */
+    [data-theme="dark"] .contact-input.textarea {
+      background-color: var(--bg-surface-alt);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    /* Footer watermark — same treatment both modes */
+    [data-theme="dark"] .footer-watermark {
+      color: #2a2118;
+      opacity: 0.15;
+    }
+
+    /* Mobile responsive toggle */
+    @media (max-width: 991px) {
+      .theme-toggle {
+        position: absolute;
+        right: 64px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
   </style>
+  <script>
+    (function(){
+      var s = localStorage.getItem('theme');
+      if (s) { document.documentElement.setAttribute('data-theme', s); }
+      else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="Home" class="page-wrapper">
@@ -539,6 +693,10 @@
               </div>
             </nav>
             <div class="navber-menu-wrap">
+              <button id="theme-toggle" class="theme-toggle" aria-label="Przełącz tryb ciemny" type="button">
+                <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+              </button>
               <a href="#Contact" class="primary-btn-wrap navber w-inline-block">
                 <div class="text-wrap">
                   <div class="button-text">zacznij naukę</div>
@@ -1333,6 +1491,23 @@
             item.classList.add('is-open');
           }
         });
+      });
+    })();
+
+    // Theme Toggle
+    (function() {
+      var toggle = document.getElementById('theme-toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
       });
     })();
   </script>
