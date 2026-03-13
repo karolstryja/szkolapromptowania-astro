@@ -18,6 +18,14 @@
   <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.svg" rel="apple-touch-icon">
   <style>
+    /* Section snap on scroll */
+    html {
+      scroll-snap-type: y proximity;
+    }
+    .section, .blog-scroll-section {
+      scroll-snap-align: start;
+    }
+
     /* Force disc bullets instead of squares */
     .list, .blog-list, .banner-list-flex {
       list-style-type: disc !important;
@@ -479,17 +487,23 @@
       margin: 0;
       flex: 1;
     }
-    .blog-carousel {
-      overflow: visible;
+    /* Blog scroll-driven horizontal slide */
+    .blog-scroll-section {
       position: relative;
     }
-    .blog-carousel-track-wrap {
+    .blog-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       overflow: hidden;
     }
     .blog-carousel-track {
       display: flex;
       gap: 24px;
-      transition: transform 0.5s cubic-bezier(.23,1,.32,1);
+      will-change: transform;
     }
     .blog-carousel-track .blog-slide {
       width: calc(33.333% - 16px);
@@ -514,54 +528,11 @@
     .blog-carousel-track .blog-slide .project-title.v1 {
       font-size: 20px;
     }
-    /* Side navigation arrows */
-    .blog-side-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      font-size: 48px;
-      font-weight: 300;
-      font-family: var(--font-family);
-      color: var(--primary);
-      cursor: pointer;
-      z-index: 10;
-      transition: all 0.3s cubic-bezier(.23,1,.32,1);
-      user-select: none;
-      line-height: 1;
-      padding: 20px 6px;
-      opacity: 0.85;
-    }
-    .blog-side-nav:hover {
-      opacity: 1;
-      transform: translateY(-50%) scale(1.15);
-    }
-    .blog-side-nav.disabled {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .blog-side-nav.prev {
-      left: -52px;
-    }
-    .blog-side-nav.next {
-      right: -52px;
-    }
     @media (max-width: 991px) {
       .blog-carousel-track .blog-slide {
         width: calc(50% - 12px);
         min-width: calc(50% - 12px);
         max-width: calc(50% - 12px);
-      }
-      .blog-side-nav {
-        font-size: 36px;
-        padding: 16px 4px;
-      }
-      .blog-side-nav.prev {
-        left: -36px;
-      }
-      .blog-side-nav.next {
-        right: -36px;
       }
     }
     @media (max-width: 768px) {
@@ -571,19 +542,9 @@
         gap: 16px;
       }
       .blog-carousel-track .blog-slide {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
-      }
-      .blog-side-nav {
-        font-size: 30px;
-        padding: 12px 2px;
-      }
-      .blog-side-nav.prev {
-        left: -24px;
-      }
-      .blog-side-nav.next {
-        right: -24px;
+        width: 85%;
+        min-width: 85%;
+        max-width: 85%;
       }
     }
 
@@ -710,10 +671,6 @@
       color: var(--gray-color);
     }
 
-    /* Blog side nav arrows */
-    [data-theme="dark"] .blog-side-nav {
-      color: var(--primary);
-    }
 
     /* Pricing text */
     [data-theme="dark"] .pricing-text {
@@ -1167,7 +1124,8 @@
         </div>
       </div>
     </section>
-    <section id="Blog" class="section">
+    <section id="Blog" class="blog-scroll-section">
+      <div class="blog-sticky">
       <div class="w-layout-blockcontainer container w-container">
         <div class="blog-header">
           <ul role="list" class="blog-list">
@@ -1180,9 +1138,7 @@
             </li>
           </ul>
         </div>
-        <div class="blog-carousel scroll-fade">
-          <button class="blog-side-nav prev disabled" aria-label="Poprzedni">&#8249;</button>
-          <div class="blog-carousel-track-wrap">
+        <div class="blog-carousel">
           <div class="blog-carousel-track">
             <div class="blog-slide">
               <a href="blog.html?post=siemens-inzynierki-ai" class="blog-link-block w-inline-block">
@@ -1330,9 +1286,8 @@
               </a>
             </div>
           </div>
-          </div>
-          <button class="blog-side-nav next disabled" aria-label="Następny">&#8250;</button>
         </div>
+      </div>
       </div>
     </section>
     <section id="Contact-V2" class="section">
@@ -1648,42 +1603,57 @@
       });
     })();
 
-    // Blog Carousel
+    // Blog scroll-driven horizontal slide
     (function() {
+      var section = document.querySelector('.blog-scroll-section');
       var track = document.querySelector('.blog-carousel-track');
-      var prevBtn = document.querySelector('.blog-side-nav.prev');
-      var nextBtn = document.querySelector('.blog-side-nav.next');
-      if (!track || !prevBtn || !nextBtn) return;
+      if (!section || !track) return;
       var slides = track.querySelectorAll('.blog-slide');
-      var current = 0;
+
       function getVisible() {
         if (window.innerWidth <= 768) return 1;
         if (window.innerWidth <= 991) return 2;
         return 3;
       }
-      function getMax() {
-        return Math.max(0, slides.length - getVisible());
-      }
-      function update() {
+
+      function setup() {
         var visible = getVisible();
-        var gap = 24;
-        var slideW = (track.parentElement.offsetWidth - gap * (visible - 1)) / visible;
-        var offset = current * (slideW + gap);
-        track.style.transform = 'translateX(-' + offset + 'px)';
-        prevBtn.classList.toggle('disabled', current <= 0);
-        nextBtn.classList.toggle('disabled', current >= getMax());
+        var overflow = slides.length - visible;
+        if (overflow <= 0) {
+          section.style.height = 'auto';
+          track.style.transform = 'none';
+          return;
+        }
+        // Extra scroll height: each overflow card = 60vh of scroll distance
+        var extraH = overflow * 60;
+        section.style.height = (100 + extraH) + 'vh';
       }
-      prevBtn.addEventListener('click', function() {
-        if (current > 0) { current--; update(); }
-      });
-      nextBtn.addEventListener('click', function() {
-        if (current < getMax()) { current++; update(); }
-      });
-      window.addEventListener('resize', function() {
-        if (current > getMax()) current = getMax();
-        update();
-      });
-      update();
+
+      function onScroll() {
+        var rect = section.getBoundingClientRect();
+        var sectionH = section.offsetHeight;
+        var viewH = window.innerHeight;
+        var visible = getVisible();
+        var overflow = slides.length - visible;
+        if (overflow <= 0) { track.style.transform = 'none'; return; }
+
+        // Progress: 0 at top of section, 1 when sticky ends
+        var scrolled = -rect.top;
+        var scrollRange = sectionH - viewH;
+        var progress = Math.max(0, Math.min(1, scrolled / scrollRange));
+
+        // Max translateX = total overflow width
+        var gap = 24;
+        var containerW = track.parentElement.offsetWidth;
+        var slideW = (containerW - gap * (visible - 1)) / visible;
+        var maxShift = overflow * (slideW + gap);
+
+        track.style.transform = 'translateX(' + (-progress * maxShift) + 'px)';
+      }
+
+      setup();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', function() { setup(); onScroll(); });
     })();
 
     // Service Accordion
