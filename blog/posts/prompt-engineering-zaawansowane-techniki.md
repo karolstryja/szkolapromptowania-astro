@@ -50,10 +50,10 @@ Hasło:
 AI zrozumie styl, strukturę i ton. Bez słowa wyjaśnienia.
 
 :::gallery-grid
-/images/project-1.jpg | Chain-of-thought w praktyce
-/images/project-2_1project-2.webp | Few-shot learning
-/images/project-3_1project-3.webp | System prompts
-/images/project-4_1project-4.webp | Structured outputs
+images/project-1.jpg | Chain-of-thought w praktyce
+images/project-2_1project-2.webp | Few-shot learning
+images/project-3_1project-3.webp | System prompts
+images/project-4_1project-4.webp | Structured outputs
 :::
 
 ## System Prompts — ukryta supermoc

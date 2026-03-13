@@ -42,10 +42,10 @@ Open source, self-hosted. Pełna kontrola, zero limitów. Wymaga trochę więcej
 **Najlepszy do:** firm, które chcą pełnej kontroli nad danymi.
 
 :::gallery-slider
-/images/project-1.jpg | Interfejs Make — wizualny builder
-/images/project-2_1project-2.webp | Zapier — prosty trigger-action
-/images/project-3_1project-3.webp | n8n — open source power
-/images/project-4_1project-4.webp | Gotowy pipeline w akcji
+images/project-1.jpg | Interfejs Make — wizualny builder
+images/project-2_1project-2.webp | Zapier — prosty trigger-action
+images/project-3_1project-3.webp | n8n — open source power
+images/project-4_1project-4.webp | Gotowy pipeline w akcji
 :::
 
 ## Twój pierwszy pipeline — w 15 minut

@@ -1,5 +1,13 @@
 [
   {
+    "slug": "tvn-szkolenie-ai",
+    "title": "TVN — szkolenie AI dla dziennikarzy",
+    "date": "2025-09-20",
+    "image": "images/blog/tvn/tvn-workshop-web.mp4",
+    "excerpt": "Dzień Dobry TVN i UWAGA! TVN — jak przekonać sceptycznych dziennikarzy, że AI to nie zagrożenie, a supermoc?",
+    "tags": ["case study", "tvn", "media", "dziennikarstwo"]
+  },
+  {
     "slug": "siemens-inzynierki-ai",
     "title": "Siemens Inżynierki 4.0 — AI Edition",
     "date": "2025-10-15",

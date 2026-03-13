@@ -42,9 +42,9 @@ właściciele firm 30-50 lat, nietechniczni.
 Różnica? Pierwszy da ci wypracowanie szkolne. Drugi — gotowy tekst na stronę.
 
 :::gallery-masonry
-/images/project-1.jpg | Przykład promptu w ChatGPT
-/images/project-2_1project-2.webp | Wynik po zastosowaniu technik
-/images/project-3_1project-3.webp | Iteracja odpowiedzi
+images/project-1.jpg | Przykład promptu w ChatGPT
+images/project-2_1project-2.webp | Wynik po zastosowaniu technik
+images/project-3_1project-3.webp | Iteracja odpowiedzi
 :::
 
 ## Iteracja — klucz do perfekcji

@@ -21,7 +21,7 @@
   <style>
     /* Blog post article styles */
     .blog-article {
-      max-width: 740px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
@@ -194,8 +194,8 @@
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
       width: 100vw;
-      padding-left: calc(50vw - 370px);
-      padding-right: calc(50vw - 370px);
+      padding-left: calc(50vw - 550px);
+      padding-right: calc(50vw - 550px);
     }
     .gallery-slider figure {
       flex: none;
@@ -230,6 +230,26 @@
         padding-left: 20px;
         padding-right: 20px;
       }
+    }
+
+    /* Blog video embed */
+    .blog-video {
+      margin: 40px 0;
+      width: 100%;
+    }
+    .blog-video video {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 600px;
+      background: #000;
+    }
+    .blog-hero-video {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 48px;
+      background: #000;
     }
 
     /* Back link */
@@ -312,6 +332,7 @@
         <div id="blog-meta" class="blog-meta"></div>
         <h1 id="blog-title" class="blog-article-title"></h1>
         <img id="blog-hero" class="blog-hero-image" alt="" style="display:none;">
+        <video id="blog-hero-video" class="blog-hero-video" controls playsinline preload="metadata" style="display:none;"></video>
         <div id="blog-content" class="blog-article-body"></div>
       </div>
     </section>
@@ -365,12 +386,19 @@
           document.title = (frontmatter.title || slug) + ' — Szkoła Promptowania';
           document.getElementById('blog-title').textContent = frontmatter.title || slug;
 
-          // Hero image
+          // Hero image or video
           if (frontmatter.image) {
-            var heroImg = document.getElementById('blog-hero');
-            heroImg.src = frontmatter.image;
-            heroImg.alt = frontmatter.title || '';
-            heroImg.style.display = 'block';
+            var imgPath = frontmatter.image.replace(/^\//, '');
+            if (imgPath.match(/\.(mp4|webm|mov)$/i)) {
+              var heroVid = document.getElementById('blog-hero-video');
+              heroVid.src = imgPath;
+              heroVid.style.display = 'block';
+            } else {
+              var heroImg = document.getElementById('blog-hero');
+              heroImg.src = imgPath;
+              heroImg.alt = frontmatter.title || '';
+              heroImg.style.display = 'block';
+            }
           }
 
           // Meta (date + tags)
@@ -387,12 +415,18 @@
           }
           document.getElementById('blog-meta').innerHTML = metaHtml;
 
+          // Process custom video syntax
+          md = md.replace(/:::video\n([\s\S]*?):::/g, function(match, content) {
+            var src = content.trim().replace(/^\//, '');
+            return '<div class="blog-video"><video src="' + src + '" controls playsinline preload="metadata"></video></div>';
+          });
+
           // Process custom gallery syntax before markdown
           var galleryLayout = (frontmatter.gallery_layout || 'grid').trim();
           md = md.replace(/:::gallery-(masonry|grid|fullwidth|slider)\n([\s\S]*?):::/g, function(match, layout, content) {
             var figures = content.trim().split('\n').map(function(line) {
               var parts = line.split('|');
-              var src = parts[0].trim();
+              var src = parts[0].trim().replace(/^\//, '');
               var caption = parts[1] ? parts[1].trim() : '';
               return '<figure><img src="' + src + '" alt="' + caption + '" loading="lazy">' +
                      (caption ? '<figcaption>' + caption + '</figcaption>' : '') + '</figure>';
