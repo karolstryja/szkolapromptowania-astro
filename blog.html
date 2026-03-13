@@ -36,7 +36,7 @@
     }
     .blog-hero-video {
       width: 100%;
-      height: 520px;
+      height: 720px;
       object-fit: cover;
       display: block;
       background: #000;
@@ -449,8 +449,8 @@
     }
 
     @media (max-width: 768px) {
-      .blog-hero-image,
-      .blog-hero-video { height: 280px; }
+      .blog-hero-image { height: 280px; }
+      .blog-hero-video { height: 400px; }
 
       .blog-article { padding: 0 18px; }
       .blog-article-title {
@@ -614,9 +614,12 @@
           }
           document.getElementById('blog-meta-tags').innerHTML = tagsHtml;
 
-          // :::video
+          // :::video — skip if same as hero video
+          var heroSrc = (frontmatter.image || '').replace(/^\//, '');
+          var isHeroVideo = heroSrc.match(/\.(mp4|webm|mov)$/i);
           md = md.replace(/:::video\n([\s\S]*?):::/g, function(match, content) {
             var src = content.trim().replace(/^\//, '');
+            if (isHeroVideo && src === heroSrc) return '';
             return '<div class="blog-video"><video src="' + src + '" controls playsinline preload="metadata"></video></div>';
           });
 
