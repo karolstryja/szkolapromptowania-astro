@@ -262,31 +262,22 @@
       margin-bottom: 44px;
     }
     .blog-gallery img {
-      border-radius: 10px;
+      border-radius: 0;
       width: 100%;
       height: auto;
       display: block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .blog-gallery img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
     }
     .blog-gallery figcaption {
-      font-size: 13px;
-      color: var(--gray-color);
-      text-align: center;
-      margin-top: 8px;
-      font-style: italic;
+      display: none;
     }
 
     /* Masonry — Pinterest-style nierówne kolumny */
     .gallery-masonry {
       columns: 3;
-      column-gap: 16px;
+      column-gap: 6px;
     }
     .gallery-masonry figure {
-      margin: 0 0 16px 0;
+      margin: 0 0 6px 0;
       break-inside: avoid;
     }
 
@@ -294,7 +285,7 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: 6px;
     }
     .gallery-grid figure { margin: 0; }
 
@@ -308,19 +299,14 @@
     }
     .gallery-fullwidth figure { margin: 0; }
     .gallery-fullwidth img {
-      border-radius: 0;
       max-height: 500px;
       object-fit: cover;
     }
-    .gallery-fullwidth img:hover {
-      transform: none;
-      box-shadow: none;
-    }
 
-    /* Slider — zostawiamy ale prostszy */
+    /* Slider */
     .gallery-slider {
       display: flex;
-      gap: 16px;
+      gap: 6px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       padding-bottom: 8px;
@@ -344,7 +330,7 @@
     }
     .blog-video video {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 0;
       max-height: 520px;
       background: #000;
     }
@@ -375,6 +361,38 @@
       background: var(--primary);
       z-index: 9999;
       transition: width 0.1s linear;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER (matching landing page)
+       ═══════════════════════════════════════════ */
+    .footer-inner-wrap { overflow: hidden !important; }
+    .footer-watermark {
+      position: absolute;
+      bottom: -30px; right: -10px;
+      font-family: 'CreatoDisplay', sans-serif;
+      font-weight: 700; font-size: 180px;
+      color: #2a2118; opacity: 0.15;
+      line-height: 0.85; white-space: nowrap;
+      pointer-events: none; letter-spacing: -5px;
+    }
+    .footer-row-layout { flex-direction: column !important; gap: 40px; }
+    .footer-top-row {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; width: 100%;
+    }
+    .footer-top-row .footer-list.v2 { display: flex; gap: 28px; flex-wrap: wrap; }
+    .footer-newsletter-inline { flex-shrink: 0; width: 340px; margin-bottom: 0; }
+    .footer-newsletter-form { margin: 0; }
+    .footer-newsletter-form .footer-input-wrap { height: 42px; }
+    .footer-newsletter-form .footer-form-btn { font-size: 14px; }
+    @media (max-width: 991px) {
+      .footer-watermark { font-size: 120px; bottom: -20px; letter-spacing: -3px; }
+    }
+    @media (max-width: 768px) {
+      .footer-watermark { font-size: 80px; bottom: -14px; right: -5px; letter-spacing: -2px; }
+      .footer-top-row { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .footer-newsletter-inline { width: 100%; }
     }
 
     /* ═══════════════════════════════════════════
@@ -516,14 +534,8 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <div class="footer" style="margin-top: 80px;">
-      <section class="footer-inner-wrap" style="padding: 40px 0;">
-        <div class="w-layout-blockcontainer container v1 w-container">
-          <p style="font-family: var(--font-family); font-size: 14px; color: var(--white); opacity: 0.6; margin: 0; text-align: center;">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
-        </div>
-      </section>
-    </div>
+    <!-- Footer — loaded as component -->
+    <div id="footer-component" style="margin-top: 80px;"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -654,6 +666,13 @@
           localStorage.setItem('theme', n);
         });
       }
+      // ── Load footer component ──
+      fetch('components/footer.html')
+        .then(function(r) { return r.ok ? r.text() : ''; })
+        .then(function(html) {
+          var fc = document.getElementById('footer-component');
+          if (fc && html) fc.innerHTML = html;
+        });
     })();
   </script>
 </body>
