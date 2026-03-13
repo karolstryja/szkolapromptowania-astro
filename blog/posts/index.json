@@ -8,6 +8,14 @@
     "tags": ["case study", "tvn", "media", "dziennikarstwo"]
   },
   {
+    "slug": "lenovo-ai-day4all",
+    "title": "Lenovo AI Day4All — kiedy korporacja mówi o AI po ludzku",
+    "date": "2025-11-10",
+    "image": "images/blog/lenovo/hero.jpg",
+    "excerpt": "Jak sprawić, żeby kilkaset osób w korporacji naprawdę zrozumiało AI? Nie prezentacją. Nie mailem od zarządu. Eventem, który zmienia perspektywę.",
+    "tags": ["case study", "lenovo", "AI day", "warsztaty", "edukacja"]
+  },
+  {
     "slug": "siemens-inzynierki-ai",
     "title": "Siemens Inżynierki 4.0 — AI Edition",
     "date": "2025-10-15",
