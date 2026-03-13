@@ -2,20 +2,20 @@
 title: Lenovo AI Day4All — kiedy korporacja mówi o AI po ludzku
 date: 2025-11-10
 image: images/blog/lenovo/hero.jpg
-excerpt: Jak sprawić, żeby kilkaset osób w korporacji naprawdę zrozumiało AI? Nie prezentacją. Nie mailem od zarządu. Eventem, który zmienia perspektywę.
+excerpt: Jak sprawić, żeby kilkaset osób w korporacji naprawdę zrozumiało AI? Eventem, który zmienia perspektywę.
 gallery_layout: masonry
 tags: [case study, lenovo, AI day, warsztaty, edukacja]
 ---
 
-Wojciech Zaskórski, Dyrektor Zarządzający Lenovo w Polsce, powiedział coś, co rzadko słyszy się od szefów korporacji: siła marki technologicznej nie leży w sprzęcie. Leży w kompetencjach ludzi, którzy z tego sprzętu korzystają.
+Wojciech Zaskórski, Dyrektor Zarządzający Lenovo w Polsce, powiedział coś, co rzadko słyszy się od szefów korporacji: siła marki technologicznej leży w kompetencjach ludzi, którzy z tego sprzętu korzystają.
 
 Z tego przekonania powstał AI Day4All.
 
 ## Czym jest AI Day4All?
 
-Coroczne wewnętrzne wydarzenie edukacyjne Lenovo Polska. Nie konferencja z PowerPointami. Nie webinar z wyciszonym mikrofonem. Pełnowymiarowy event, w którym AI przestaje być buzzwordem, a zaczyna być czymś namacalnym.
+Coroczne wewnętrzne wydarzenie edukacyjne Lenovo Polska. Pełnowymiarowy event, w którym AI przestaje być buzzwordem, a zaczyna być czymś namacalnym.
 
-> Nie chcieliśmy mówić ludziom, że AI jest ważne. Chcieliśmy, żeby to poczuli.
+> Chcieliśmy, żeby ludzie poczuli AI.
 
 ## Strategia: eksperci, którzy przełamują bariery
 
@@ -49,7 +49,7 @@ Tu już poważniej: generowanie grafik, storytelling z AI, rozpoznawanie deepfak
 
 ## Full-service, który działa
 
-Dla Lenovo nie byliśmy podwykonawcą od jednego elementu. Byliśmy partnerem od A do Z:
+Byliśmy partnerem od A do Z:
 
 - Koncepcja i strategia całego eventu
 - Rekrutacja uczestników programów młodzieżowych

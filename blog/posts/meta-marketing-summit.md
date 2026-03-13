@@ -9,13 +9,13 @@ tags: [case study, meta, marketing summit, panel, AI]
 
 Meta Marketing Summit. Flagowe wydarzenie B2B giganta technologicznego. Po Berlinie, Londynie i dziesiątkach innych miast — w 2024 roku zawitało do Warszawy. Cel? Pokazać 300 kluczowym klientom i partnerom, jak Meta pomaga im rosnąć.
 
-Na agendzie gorące tematy: AI, Reels, automatyzacja. Ale Meta wiedziała, że potrzebuje czegoś więcej niż prezentacji własnych narzędzi. Potrzebowała spojrzenia ponad horyzont.
+Na agendzie gorące tematy: AI, Reels, automatyzacja. Meta potrzebowała spojrzenia ponad horyzont.
 
 ## Wyzwanie: przyszłość marketingu w 30 minut
 
 Brief był precyzyjny: debata ekspercka o tym, dokąd zmierza marketing w perspektywie 3–5 lat. Z uwzględnieniem AI, europejskiej regulacji i zmieniającego się krajobrazu mediów. Wszystko skondensowane w 30 minut. Bez slajdów, bez korporacyjnej mowy-trawy. Autentycznie.
 
-> Meta wiedziała, że potrzebuje czegoś więcej niż prezentacji własnych narzędzi. Potrzebowała spojrzenia ponad horyzont.
+> Meta potrzebowała spojrzenia ponad horyzont.
 
 ## Troje tytanów i moderator
 
@@ -50,4 +50,4 @@ Europa vs. USA vs. Azja — kto wygrywa wyścig? Czy GDPR i AI Act stymulują, c
 
 300 decydentów wyszło z panelu z intelektualną mapą: jak łączą się data science, kreatywność, socjologia technologii i prawo. A archetype+ udowodniło, że potrafi nie tylko rekrutować ekspertów światowej klasy, ale też moderować debatę na poziomie, jakiego oczekuje Meta.
 
-To nie był kolejny panel na konferencji. To było 30 minut, które zmieniło perspektywę 300 osób.
+30 minut, które zmieniło perspektywę 300 osób.

@@ -7,9 +7,9 @@ gallery_layout: slider
 tags: [case study, siemens, warsztaty, prompt engineering]
 ---
 
-37% miejsc na politechnikach zajmują kobiety. Ale tylko 15% absolwentek kierunków technicznych pracuje potem na stanowiskach inżynierskich. Te liczby to nie statystyka — to zmarnowany potencjał na skalę systemową.
+37% miejsc na politechnikach zajmują kobiety. Ale tylko 15% absolwentek kierunków technicznych pracuje potem na stanowiskach inżynierskich. Te liczby to zmarnowany potencjał na skalę systemową.
 
-Siemens od siedmiu lat prowadzi program Inżynierki 4.0 — precyzyjnie zaprojektowany inkubator kompetencji dla studentek kierunków technicznych. Nie kolejna konferencja z inspiracyjnymi przemówieniami. Konkretne umiejętności, realna pewność siebie, praktyczne narzędzia.
+Siemens od siedmiu lat prowadzi program Inżynierki 4.0 — precyzyjnie zaprojektowany inkubator kompetencji dla studentek kierunków technicznych. Konkretne umiejętności, realna pewność siebie, praktyczne narzędzia.
 
 W tym roku program dostał nowy wymiar: **AI Edition**.
 
@@ -23,7 +23,7 @@ Dlatego Siemens zaprosił nas — Marcina Sawickiego i mnie — żeby przeprowad
 
 ## Promptowanie to nowy angielski
 
-Tak brzmiał nasz główny przekaz. Nie uczyliśmy programowania. Nie uczyliśmy budowy modeli. Uczyliśmy **precyzyjnej komunikacji z maszynami** — umiejętności, która za chwilę będzie tak podstawowa jak znajomość Excela.
+Tak brzmiał nasz główny przekaz. Uczyliśmy **precyzyjnej komunikacji z maszynami** — umiejętności, która za chwilę będzie tak podstawowa jak znajomość Excela.
 
 Na żywo wrzuciliśmy raport Siemensa do chatbota. W kilka sekund — sformatowane podsumowanie z kluczowymi wnioskami. Dla osób, które na co dzień przerabiają dziesiątki stron dokumentacji technicznej, to był moment "aha".
 
@@ -41,11 +41,11 @@ Warsztaty zaczęliśmy od czegoś, co nie wyglądało na "techniczne szkolenie".
 
 Po co? Żeby pokazać precyzję stylistyczną. Jeśli AI potrafi pisać jak felietonista i jak konsultant McKinsey, to potrafi też analizować dokumentację techniczną z różnych perspektyw — od audytora, od project managera, od klienta.
 
-To nie sztuczka. To **fundamentalna umiejętność**: kontrolowanie perspektywy i tonu odpowiedzi AI.
+To **fundamentalna umiejętność**: kontrolowanie perspektywy i tonu odpowiedzi AI.
 
 ## Frameworki, które zostają na zawsze
 
-Nie zostawiliśmy uczestniczek z luźnymi trikami. Daliśmy im konkretne frameworki:
+Daliśmy im konkretne frameworki:
 
 - **COSTAR** — struktura do precyzyjnego definiowania kontekstu, celu i formatu odpowiedzi
 - **Chain of Thought** — wymuszanie myślenia krok po kroku, niezbędne przy złożonych problemach inżynierskich
@@ -55,7 +55,7 @@ Te frameworki działają niezależnie od narzędzia — ChatGPT, Claude, Gemini.
 
 ## Nie AI zamiast inżynierek. AI dla inżynierek.
 
-Cel nigdy nie był taki, żeby maszyna zastąpiła człowieka. Cel był prosty: dać przyszłym liderkom polskiej technologii praktyczne umiejętności, które zrobią różnicę w ich karierze.
+Cel był prosty: dać przyszłym liderkom polskiej technologii praktyczne umiejętności, które zrobią różnicę w ich karierze.
 
 Bo za 5 lat nikt nie będzie pytał "czy umiesz korzystać z AI?". Będą pytać "jak dobrze?".
 
