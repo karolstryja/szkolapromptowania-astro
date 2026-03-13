@@ -103,21 +103,46 @@
       color: var(--text-primary);
     }
 
-    /* ── Headings ── */
+    /* ── H2 — styl ze strony głównej: amber kropka + linia ── */
     .blog-article-body h2 {
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin: 56px 0 20px 0;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--primary);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0;
       color: var(--text-primary);
+      margin: 56px 0 24px 0;
+      padding: 10px 0 0 20px;
+      border-top: 1px solid var(--border-color, #ececec);
+      border-bottom: none;
+      position: relative;
+      list-style: none;
     }
+    .blog-article-body h2::before {
+      content: '●';
+      color: var(--primary-tint, var(--primary));
+      position: absolute;
+      left: 0;
+      top: 10px;
+      font-size: 10px;
+      line-height: 18px;
+    }
+
     .blog-article-body h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin: 36px 0 12px 0;
-      color: var(--primary);
+      font-size: 18px;
+      font-weight: 500;
+      margin: 36px 0 14px 0;
+      padding-left: 20px;
+      color: var(--text-primary);
+      position: relative;
+    }
+    .blog-article-body h3::before {
+      content: '●';
+      color: var(--primary-tint, var(--primary));
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 8px;
+      line-height: 18px;
+      opacity: 0.5;
     }
 
     /* ── Paragraphs ── */
