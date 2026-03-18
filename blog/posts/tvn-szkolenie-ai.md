@@ -1,7 +1,7 @@
 ---
 title: TVN — szkolenie AI dla dziennikarzy
 date: 2025-09-20
-image: images/blog/tvn/tvn-workshop-web.mp4
+image: images/blog/tvn/hero.jpg
 excerpt: Dzień Dobry TVN i UWAGA! TVN — jak przekonać sceptycznych dziennikarzy, że AI to nie zagrożenie, a supermoc?
 gallery_layout: fullwidth
 tags: [case study, tvn, media, dziennikarstwo, szkolenie]

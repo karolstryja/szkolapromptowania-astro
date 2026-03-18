@@ -1,9 +1,17 @@
 [
   {
+    "slug": "siemens-inzynierki-ai",
+    "title": "Siemens Inżynierki 4.0 — AI Edition",
+    "date": "2025-10-15",
+    "image": "images/blog/siemens/hero.jpg",
+    "excerpt": "30 studentek politechnik, dwa dni warsztatów i jedno pytanie — jak nauczyć przyszłe inżynierki języka, którym mówi się do maszyn?",
+    "tags": ["case study", "siemens", "warsztaty", "prompt engineering"]
+  },
+  {
     "slug": "tvn-szkolenie-ai",
     "title": "TVN — szkolenie AI dla dziennikarzy",
     "date": "2025-09-20",
-    "image": "images/blog/tvn/tvn-workshop-web.mp4",
+    "image": "images/blog/tvn/hero.jpg",
     "excerpt": "Dzień Dobry TVN i UWAGA! TVN — jak przekonać sceptycznych dziennikarzy, że AI to nie zagrożenie, a supermoc?",
     "tags": ["case study", "tvn", "media", "dziennikarstwo"]
   },
@@ -24,43 +32,11 @@
     "tags": ["case study", "meta", "marketing summit", "panel", "AI"]
   },
   {
-    "slug": "siemens-inzynierki-ai",
-    "title": "Siemens Inżynierki 4.0 — AI Edition",
-    "date": "2025-10-15",
-    "image": "images/blog/siemens/hero.jpg",
-    "excerpt": "30 studentek politechnik, dwa dni warsztatów i jedno pytanie — jak nauczyć przyszłe inżynierki języka, którym mówi się do maszyn?",
-    "tags": ["case study", "siemens", "warsztaty", "prompt engineering"]
-  },
-  {
     "slug": "jak-napisac-pierwszy-prompt",
     "title": "Jak napisać pierwszy prompt",
     "date": "2026-03-10",
     "image": "images/image-1_2image-1.webp",
     "excerpt": "Wszystko zaczyna się od pierwszego polecenia. Pokażemy ci jak formułować prompty, które naprawdę działają.",
     "tags": ["promptowanie", "podstawy"]
-  },
-  {
-    "slug": "ai-w-firmie-od-czego-zaczac",
-    "title": "AI w firmie — od czego zacząć?",
-    "date": "2026-03-05",
-    "image": "images/project-2_1project-2.webp",
-    "excerpt": "Wdrożenie AI nie musi być rewolucją. Pokażemy jak zacząć od małych kroków, które dają natychmiastowe efekty.",
-    "tags": ["biznes", "wdrożenie", "strategia"]
-  },
-  {
-    "slug": "prompt-engineering-zaawansowane-techniki",
-    "title": "Prompt engineering — zaawansowane techniki",
-    "date": "2026-02-28",
-    "image": "images/project-3_1project-3.webp",
-    "excerpt": "Chain-of-thought, few-shot, system prompts. Techniki, które odróżniają amatora od profesjonalisty.",
-    "tags": ["prompt engineering", "zaawansowane", "techniki"]
-  },
-  {
-    "slug": "automatyzacja-ai-make-zapier",
-    "title": "Automatyzacja z AI — Make, Zapier i n8n",
-    "date": "2026-02-20",
-    "image": "images/project-4_1project-4.webp",
-    "excerpt": "Połącz narzędzia AI w automatyczne pipeline'y. Bez kodowania, bez IT, bez stresu.",
-    "tags": ["automatyzacja", "make", "zapier", "n8n", "no-code"]
   }
 ]

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zespół — warianty 3 i 10 w różnych paletach</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f5f3f0;
+    color: #1a1a1a;
+    padding: 60px 40px;
+  }
+  .page-title {
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #999;
+    margin-bottom: 80px;
+  }
+  .variant-label {
+    text-align: center;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #bbb;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  .variant-label span {
+    background: #f5f3f0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .variant-label::before {
+    content: '';
+    display: block;
+    height: 1px;
+    background: #ddd;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+  }
+  section {
+    max-width: 1200px;
+    margin: 0 auto 140px;
+  }
+
+  /* ============================================================
+     WARIANT 3 — Duże zdjęcia z overlay
+     5 wariacji kolorystycznych i typograficznych
+     ============================================================ */
+
+  /* --- 3A: Ciepły amber gradient, duży bold tytuł --- */
+  .v3a-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .v3a-card {
+    position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 3/4;
+  }
+  .v3a-card img { width: 100%; height: 100%; object-fit: cover; }
+  .v3a-card .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 48px 36px;
+    background: linear-gradient(transparent 0%, rgba(42,33,24,0.95) 100%);
+  }
+  .v3a-card .overlay .tag {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+    color: #e8a838; margin-bottom: 12px;
+  }
+  .v3a-card .overlay h3 {
+    font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 10px;
+    letter-spacing: -0.5px;
+  }
+  .v3a-card .overlay p {
+    font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.6); margin-bottom: 20px;
+  }
+  .v3a-card .overlay .links { display: flex; gap: 12px; }
+  .v3a-card .overlay .links a {
+    font-size: 12px; text-decoration: none; padding: 8px 20px; border-radius: 100px;
+    border: 1.5px solid rgba(232,168,56,0.5); color: #e8a838; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .v3a-card .overlay .links a:hover { background: #e8a838; color: #fff; border-color: #e8a838; }
+
+  /* --- 3B: Czysta biel z czarnym gradientem, geometryczny --- */
+  .v3b-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .v3b-card {
+    position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/5;
+  }
+  .v3b-card img { width: 100%; height: 100%; object-fit: cover; }
+  .v3b-card .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 40px 32px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  }
+  .v3b-card .overlay h3 {
+    font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .v3b-card .overlay .role {
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin-bottom: 14px;
+  }
+  .v3b-card .overlay p {
+    font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.5); margin-bottom: 16px;
+  }
+  .v3b-card .overlay .links a {
+    font-size: 12px; text-decoration: none; color: #fff; margin-right: 20px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+    border-bottom: 2px solid #e8a838; padding-bottom: 2px;
+  }
+
+  /* --- 3C: Ciemny elegancki z subtelnymi liniami --- */
+  .v3c-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .v3c-card {
+    position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 3/4;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .v3c-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85) contrast(1.1); }
+  .v3c-card .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 52px 40px;
+    background: linear-gradient(transparent 0%, rgba(15,12,8,0.92) 70%);
+  }
+  .v3c-card .overlay .line { width: 40px; height: 2px; background: #e8a838; margin-bottom: 20px; }
+  .v3c-card .overlay h3 {
+    font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 6px;
+  }
+  .v3c-card .overlay .role {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2.5px;
+    color: #e8a838; margin-bottom: 16px; font-weight: 500;
+  }
+  .v3c-card .overlay p {
+    font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 20px;
+  }
+  .v3c-card .overlay .links a {
+    font-size: 13px; text-decoration: none; color: rgba(255,255,255,0.7); margin-right: 20px;
+    transition: color 0.2s;
+  }
+  .v3c-card .overlay .links a:hover { color: #e8a838; }
+  .v3c-card .overlay .links a span { color: #e8a838; }
+
+  /* --- 3D: Jasny overlay na dole, karty z cieniem --- */
+  .v3d-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .v3d-card {
+    position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 3/4;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+  }
+  .v3d-card img { width: 100%; height: 100%; object-fit: cover; }
+  .v3d-card .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 32px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  }
+  .v3d-card .overlay h3 {
+    font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;
+  }
+  .v3d-card .overlay .role {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    color: #e8a838; margin-bottom: 12px; font-weight: 600;
+  }
+  .v3d-card .overlay p {
+    font-size: 13px; line-height: 1.6; color: #888; margin-bottom: 16px;
+  }
+  .v3d-card .overlay .links a {
+    font-size: 12px; text-decoration: none; color: #1a1a1a; margin-right: 16px;
+    padding: 6px 16px; border-radius: 100px; background: #f0ebe4; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .v3d-card .overlay .links a:hover { background: #e8a838; color: #fff; }
+
+  /* --- 3E: Pełny ciemny, zdjęcia square, wielki tytuł --- */
+  .v3e-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    background: #0f0c08; border-radius: 24px; overflow: hidden;
+  }
+  .v3e-card {
+    position: relative; aspect-ratio: 1/1;
+  }
+  .v3e-card img { width: 100%; height: 100%; object-fit: cover; opacity: 0.7; }
+  .v3e-card .overlay {
+    position: absolute; bottom: 0; left: 0; right: 0; top: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 48px 40px;
+    background: linear-gradient(transparent 30%, rgba(15,12,8,0.95) 100%);
+  }
+  .v3e-card .overlay h3 {
+    font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 4px;
+    letter-spacing: -1px; line-height: 1.1;
+  }
+  .v3e-card .overlay .role {
+    font-size: 14px; font-weight: 500; color: #e8a838; margin-bottom: 12px;
+  }
+  .v3e-card .overlay p {
+    font-size: 14px; line-height: 1.6; color: rgba(255,255,255,0.45); margin-bottom: 20px;
+    max-width: 320px;
+  }
+  .v3e-card .overlay .links a {
+    font-size: 13px; text-decoration: none; color: #e8a838; margin-right: 24px;
+    font-weight: 600;
+  }
+  .v3e-card .overlay .links a:hover { text-decoration: underline; }
+
+
+  /* ============================================================
+     WARIANT 10 — Bento grid
+     5 wariacji kolorystycznych i typograficznych
+     ============================================================ */
+
+  /* --- 10A: Ciemny bento z amber akcentami --- */
+  .v10a-wrap {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 16px;
+  }
+  .v10a-wrap.reverse { grid-template-columns: 2fr 1fr; }
+  .v10a-photo {
+    border-radius: 20px; overflow: hidden; min-height: 360px;
+  }
+  .v10a-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .v10a-bio {
+    background: #2a2118; border-radius: 20px; padding: 48px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .v10a-bio .tag {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+    color: #e8a838; margin-bottom: 12px; font-weight: 600;
+  }
+  .v10a-bio h3 {
+    font-size: 32px; font-weight: 800; color: #fff; margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .v10a-bio p {
+    font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.5); margin-bottom: 24px;
+  }
+  .v10a-bio .links { display: flex; gap: 12px; }
+  .v10a-bio .links a {
+    font-size: 13px; text-decoration: none; padding: 10px 24px; border-radius: 100px;
+    border: 2px solid #e8a838; color: #e8a838; font-weight: 600;
+    transition: all 0.2s;
+  }
+  .v10a-bio .links a:hover { background: #e8a838; color: #fff; }
+
+  /* --- 10B: Jasny bento, minimalne kolory --- */
+  .v10b-wrap {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 16px;
+  }
+  .v10b-wrap.reverse { grid-template-columns: 2fr 1fr; }
+  .v10b-photo {
+    border-radius: 20px; overflow: hidden; min-height: 340px;
+  }
+  .v10b-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .v10b-bio {
+    background: #fff; border-radius: 20px; padding: 48px;
+    display: flex; flex-direction: column; justify-content: center;
+    border: 1px solid #eee;
+  }
+  .v10b-bio h3 {
+    font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px;
+  }
+  .v10b-bio .role {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
+    color: #ccc; margin-bottom: 20px; font-weight: 500;
+  }
+  .v10b-bio p {
+    font-size: 14px; line-height: 1.7; color: #888; margin-bottom: 24px;
+  }
+  .v10b-bio .links a {
+    font-size: 13px; text-decoration: none; color: #1a1a1a; margin-right: 20px;
+    font-weight: 600; border-bottom: 2px solid #e8a838; padding-bottom: 2px;
+  }
+
+  /* --- 10C: Gradient bento, duży headline --- */
+  .v10c-wrap {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 16px;
+  }
+  .v10c-wrap.reverse { grid-template-columns: 2fr 1fr; }
+  .v10c-photo {
+    border-radius: 24px; overflow: hidden; min-height: 380px;
+  }
+  .v10c-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .v10c-bio {
+    background: linear-gradient(135deg, #1a1510 0%, #2a2118 100%);
+    border-radius: 24px; padding: 56px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .v10c-bio::after {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: rgba(232,168,56,0.06);
+  }
+  .v10c-bio h3 {
+    font-size: 40px; font-weight: 900; color: #fff; margin-bottom: 6px;
+    letter-spacing: -1px; line-height: 1.1; position: relative;
+  }
+  .v10c-bio .role {
+    font-size: 13px; font-weight: 500; color: #e8a838; margin-bottom: 20px;
+    position: relative;
+  }
+  .v10c-bio p {
+    font-size: 15px; line-height: 1.7; color: rgba(255,255,255,0.45); margin-bottom: 28px;
+    position: relative;
+  }
+  .v10c-bio .links { display: flex; gap: 12px; position: relative; }
+  .v10c-bio .links a {
+    font-size: 13px; text-decoration: none; padding: 10px 28px; border-radius: 100px;
+    background: rgba(232,168,56,0.15); color: #e8a838; font-weight: 600;
+    transition: all 0.2s; border: 1px solid rgba(232,168,56,0.3);
+  }
+  .v10c-bio .links a:hover { background: #e8a838; color: #fff; }
+
+  /* --- 10D: Bento z numerami porządkowymi --- */
+  .v10d-wrap {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 16px;
+  }
+  .v10d-wrap.reverse { grid-template-columns: 2fr 1fr; }
+  .v10d-photo {
+    border-radius: 20px; overflow: hidden; min-height: 360px;
+    position: relative;
+  }
+  .v10d-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .v10d-photo .num {
+    position: absolute; top: 20px; left: 20px;
+    font-size: 80px; font-weight: 900; color: rgba(255,255,255,0.15);
+    line-height: 1;
+  }
+  .v10d-bio {
+    background: #f0ebe4; border-radius: 20px; padding: 48px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .v10d-bio h3 {
+    font-size: 30px; font-weight: 800; color: #1a1a1a; margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .v10d-bio .role {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 2.5px;
+    color: #c89530; margin-bottom: 20px; font-weight: 600;
+  }
+  .v10d-bio p {
+    font-size: 14px; line-height: 1.7; color: #888; margin-bottom: 24px;
+  }
+  .v10d-bio .links a {
+    font-size: 13px; text-decoration: none; color: #1a1a1a; margin-right: 20px;
+    font-weight: 600; padding: 8px 20px; border-radius: 100px;
+    background: #fff; transition: all 0.2s;
+  }
+  .v10d-bio .links a:hover { background: #e8a838; color: #fff; }
+
+  /* --- 10E: Full dark, zdjęcie duże, bio wąskie --- */
+  .v10e-wrap {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 16px;
+  }
+  .v10e-wrap.reverse { grid-template-columns: 2fr 3fr; }
+  .v10e-photo {
+    border-radius: 20px; overflow: hidden; min-height: 420px;
+  }
+  .v10e-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .v10e-bio {
+    background: #0f0c08; border-radius: 20px; padding: 44px;
+    display: flex; flex-direction: column; justify-content: center;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .v10e-bio h3 {
+    font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 4px;
+  }
+  .v10e-bio .role {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 3px;
+    color: #e8a838; margin-bottom: 20px; font-weight: 500;
+  }
+  .v10e-bio p {
+    font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.4); margin-bottom: 28px;
+  }
+  .v10e-bio .links { display: flex; flex-direction: column; gap: 8px; }
+  .v10e-bio .links a {
+    font-size: 13px; text-decoration: none; padding: 10px 20px; border-radius: 12px;
+    background: rgba(232,168,56,0.1); color: #e8a838; font-weight: 600;
+    text-align: center; transition: all 0.2s;
+  }
+  .v10e-bio .links a:hover { background: #e8a838; color: #fff; }
+</style>
+</head>
+<body>
+
+<p class="page-title">Sekcja „Zespół" — warianty 3 i 10 w różnych paletach i typografiach</p>
+
+<!-- ==================== WARIANT 3A ==================== -->
+<p class="variant-label"><span>3A — Ciepły amber gradient, duży bold</span></p>
+<section>
+  <div class="v3a-wrap">
+    <div class="v3a-card">
+      <img src="images/team-marcin.jpg" alt="Marcin Sawicki">
+      <div class="overlay">
+        <div class="tag">Trener AI · Prompt Engineer</div>
+        <h3>Marcin Sawicki</h3>
+        <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+    <div class="v3a-card">
+      <img src="images/team-karol.png" alt="Karol Stryja">
+      <div class="overlay">
+        <div class="tag">Strateg AI · Współtwórca</div>
+        <h3>Karol Stryja</h3>
+        <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 3B ==================== -->
+<p class="variant-label"><span>3B — Czysty czarny gradient, uppercase</span></p>
+<section>
+  <div class="v3b-wrap">
+    <div class="v3b-card">
+      <img src="images/team-marcin.jpg" alt="Marcin Sawicki">
+      <div class="overlay">
+        <h3>Marcin Sawicki</h3>
+        <div class="role">Trener AI · Prompt Engineer</div>
+        <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+        <div class="links">
+          <a href="#">Blog</a>
+          <a href="#">Podcast</a>
+        </div>
+      </div>
+    </div>
+    <div class="v3b-card">
+      <img src="images/team-karol.png" alt="Karol Stryja">
+      <div class="overlay">
+        <h3>Karol Stryja</h3>
+        <div class="role">Strateg AI · Współtwórca</div>
+        <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+        <div class="links">
+          <a href="#">Blog</a>
+          <a href="#">Podcast</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 3C ==================== -->
+<p class="variant-label"><span>3C — Elegancki ciemny, linia akcentowa</span></p>
+<section>
+  <div class="v3c-wrap">
+    <div class="v3c-card">
+      <img src="images/team-marcin.jpg" alt="Marcin Sawicki">
+      <div class="overlay">
+        <div class="line"></div>
+        <h3>Marcin Sawicki</h3>
+        <div class="role">Trener AI · Prompt Engineer</div>
+        <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+        <div class="links">
+          <a href="#"><span>→</span> blog</a>
+          <a href="#"><span>→</span> podcast</a>
+        </div>
+      </div>
+    </div>
+    <div class="v3c-card">
+      <img src="images/team-karol.png" alt="Karol Stryja">
+      <div class="overlay">
+        <div class="line"></div>
+        <h3>Karol Stryja</h3>
+        <div class="role">Strateg AI · Współtwórca</div>
+        <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+        <div class="links">
+          <a href="#"><span>→</span> blog</a>
+          <a href="#"><span>→</span> podcast</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 3D ==================== -->
+<p class="variant-label"><span>3D — Jasny frosted overlay, cień</span></p>
+<section>
+  <div class="v3d-wrap">
+    <div class="v3d-card">
+      <img src="images/team-marcin.jpg" alt="Marcin Sawicki">
+      <div class="overlay">
+        <div class="role">Trener AI · Prompt Engineer</div>
+        <h3>Marcin Sawicki</h3>
+        <p>Pomaga firmom wdrażać AI. Prowadzi szkolenia dla największych marek w Polsce.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+    <div class="v3d-card">
+      <img src="images/team-karol.png" alt="Karol Stryja">
+      <div class="overlay">
+        <div class="role">Strateg AI · Współtwórca</div>
+        <h3>Karol Stryja</h3>
+        <p>Łączy technologię z biznesem. Tworzy programy szkoleniowe na miarę.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 3E ==================== -->
+<p class="variant-label"><span>3E — Full dark, kwadratowe, mega tytuł</span></p>
+<section>
+  <div class="v3e-wrap">
+    <div class="v3e-card">
+      <img src="images/team-marcin.jpg" alt="Marcin Sawicki">
+      <div class="overlay">
+        <h3>Marcin<br>Sawicki</h3>
+        <div class="role">Trener AI · Prompt Engineer</div>
+        <p>Pomaga firmom wdrażać sztuczną inteligencję. Prowadzi szkolenia dla największych marek.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+    <div class="v3e-card">
+      <img src="images/team-karol.png" alt="Karol Stryja">
+      <div class="overlay">
+        <h3>Karol<br>Stryja</h3>
+        <div class="role">Strateg AI · Współtwórca</div>
+        <p>Łączy technologię z biznesem, tworzy programy szkoleniowe dla organizacji.</p>
+        <div class="links">
+          <a href="#">blog →</a>
+          <a href="#">podcast →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 10A ==================== -->
+<p class="variant-label"><span>10A — Ciemny bento z amber akcentami</span></p>
+<section>
+  <div class="v10a-wrap" style="margin-bottom: 16px;">
+    <div class="v10a-photo"><img src="images/team-marcin.jpg" alt=""></div>
+    <div class="v10a-bio">
+      <div class="tag">Trener AI · Prompt Engineer</div>
+      <h3>Marcin Sawicki</h3>
+      <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+  </div>
+  <div class="v10a-wrap reverse">
+    <div class="v10a-bio">
+      <div class="tag">Strateg AI · Współtwórca</div>
+      <h3>Karol Stryja</h3>
+      <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+    <div class="v10a-photo"><img src="images/team-karol.png" alt=""></div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 10B ==================== -->
+<p class="variant-label"><span>10B — Jasny bento, minimalne kolory</span></p>
+<section>
+  <div class="v10b-wrap" style="margin-bottom: 16px;">
+    <div class="v10b-photo"><img src="images/team-marcin.jpg" alt=""></div>
+    <div class="v10b-bio">
+      <h3>Marcin Sawicki</h3>
+      <div class="role">Trener AI · Prompt Engineer</div>
+      <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+  </div>
+  <div class="v10b-wrap reverse">
+    <div class="v10b-bio">
+      <h3>Karol Stryja</h3>
+      <div class="role">Strateg AI · Współtwórca</div>
+      <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+    <div class="v10b-photo"><img src="images/team-karol.png" alt=""></div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 10C ==================== -->
+<p class="variant-label"><span>10C — Gradient bento, duży headline</span></p>
+<section>
+  <div class="v10c-wrap" style="margin-bottom: 16px;">
+    <div class="v10c-photo"><img src="images/team-marcin.jpg" alt=""></div>
+    <div class="v10c-bio">
+      <h3>Marcin Sawicki</h3>
+      <div class="role">Trener AI · Prompt Engineer</div>
+      <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+  </div>
+  <div class="v10c-wrap reverse">
+    <div class="v10c-bio">
+      <h3>Karol Stryja</h3>
+      <div class="role">Strateg AI · Współtwórca</div>
+      <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+    <div class="v10c-photo"><img src="images/team-karol.png" alt=""></div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 10D ==================== -->
+<p class="variant-label"><span>10D — Piaskowy bento z numerami</span></p>
+<section>
+  <div class="v10d-wrap" style="margin-bottom: 16px;">
+    <div class="v10d-photo"><img src="images/team-marcin.jpg" alt=""><div class="num">01</div></div>
+    <div class="v10d-bio">
+      <h3>Marcin Sawicki</h3>
+      <div class="role">Trener AI · Prompt Engineer</div>
+      <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek w Polsce.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+  </div>
+  <div class="v10d-wrap reverse">
+    <div class="v10d-bio">
+      <h3>Karol Stryja</h3>
+      <div class="role">Strateg AI · Współtwórca</div>
+      <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+    <div class="v10d-photo"><img src="images/team-karol.png" alt=""><div class="num">02</div></div>
+  </div>
+</section>
+
+<!-- ==================== WARIANT 10E ==================== -->
+<p class="variant-label"><span>10E — Full dark, duże zdjęcie, wąskie bio</span></p>
+<section>
+  <div class="v10e-wrap" style="margin-bottom: 16px;">
+    <div class="v10e-photo"><img src="images/team-marcin.jpg" alt=""></div>
+    <div class="v10e-bio">
+      <h3>Marcin Sawicki</h3>
+      <div class="role">Trener AI · Prompt Engineer</div>
+      <p>Pomaga firmom wdrażać sztuczną inteligencję w codzienne procesy. Prowadzi szkolenia dla największych marek.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+  </div>
+  <div class="v10e-wrap reverse">
+    <div class="v10e-bio">
+      <h3>Karol Stryja</h3>
+      <div class="role">Strateg AI · Współtwórca</div>
+      <p>Łączy technologię z biznesem, tworząc programy szkoleniowe dopasowane do potrzeb organizacji.</p>
+      <div class="links">
+        <a href="#">blog →</a>
+        <a href="#">podcast →</a>
+      </div>
+    </div>
+    <div class="v10e-photo"><img src="images/team-karol.png" alt=""></div>
+  </div>
+</section>
+
+</body>
+</html>
