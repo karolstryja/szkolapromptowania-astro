@@ -19,8 +19,8 @@
   <link href="images/webclip.svg" rel="apple-touch-icon">
   <style>
     /* scroll-margin for anchor links under sticky navbar */
-    .section, .blog-scroll-section {
-      scroll-margin-top: 80px;
+    .section, .blog-scroll-section, .page-wrapper {
+      scroll-margin-top: 90px;
     }
 
     /* Override Webflow .page-wrapper overflow:hidden — clip preserves
@@ -145,15 +145,33 @@
       white-space: nowrap;
     }
     @media (max-width: 768px) {
+      .footer { display: none !important; }
       .footer-top-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 24px;
+        gap: 20px;
+      }
+      .footer-top-row .footer-list.v2 {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 10px 12px !important;
+        justify-content: flex-start !important;
+      }
+      .footer-list.left.v1 {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 16px !important;
+        justify-content: flex-start !important;
       }
       .footer-legal-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 8px;
+      }
+      .footer-copy-write-text {
+        font-size: 12px !important;
+        white-space: normal !important;
+        opacity: 0.7;
       }
     }
 
@@ -817,6 +835,14 @@
       .service-left-block { position: relative; top: auto; }
       .founder-speech-text p { font-size: 12px; }
       .banner-list-flex.v1 .scroll-fade-stagger { min-height: auto; }
+      /* Stack service section single column on mobile */
+      .banner-list-flex.v1 { grid-template-columns: 1fr !important; }
+      /* Stack pricing cards single column on mobile */
+      .pricing-wrapper { grid-template-columns: 1fr !important; }
+      /* Hide navbar CTA button on mobile */
+      .primary-btn-wrap.navber { display: none !important; }
+      /* Hide founder photos/bubbles on mobile */
+      .service-founder { display: none !important; }
     }
 
     /* Team section — frosted overlay cards */
@@ -954,6 +980,14 @@
     @media (max-width: 768px) {
       .contact-inline-form {
         flex-direction: column;
+        align-items: stretch;
+      }
+      .contact-inline-form .primary-btn-wrap {
+        width: auto;
+        align-self: flex-start;
+      }
+      .contact-left-cta {
+        display: none !important;
       }
     }
     .contact-left-text {
@@ -994,10 +1028,23 @@
         gap: 32px;
         padding: 40px 24px;
       }
+      .contact-form-block {
+        width: 100% !important;
+        margin-left: 0 !important;
+      }
       .contact-left-text p {
         font-size: 18px;
       }
       .contact-left-text .contact-left-cta {
+        font-size: 36px;
+      }
+      .contact-bottom-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .contact-left-cta,
+      .contact-phone {
         font-size: 36px;
       }
     }
@@ -1779,16 +1826,18 @@
             <p>Planujesz szkolenie? Event? Nie wiesz jak zacząć wdrożenie? Pracownicy korzystają z czatbotów w telefonach?</p>
           </div>
           <div class="contact-form-block w-form scroll-fade">
-            <form id="contact-form" name="contact-form" data-name="Contact Form" method="get" class="contact-inline-form">
+            <form id="contact-form" name="contact-form" data-name="Contact Form" class="contact-inline-form">
+              <input type="hidden" name="_subject" value="Nowe zapytanie — Szkoła Promptowania">
+              <input type="hidden" name="_captcha" value="false">
               <div class="contact-inline-field"><input class="contact-inline-input" maxlength="256" name="Email" data-name="Email" placeholder="email" type="email" id="Email-Address" required=""></div>
               <div class="contact-inline-field"><input class="contact-inline-input" maxlength="256" name="Phone-Number" data-name="Phone Number" placeholder="telefon" type="tel" id="Phone-Number" required=""></div>
-              <a href="#Contact" class="primary-btn-wrap navber w-inline-block" onclick="document.getElementById('contact-form').requestSubmit(); return false;">
+              <button type="submit" class="primary-btn-wrap w-inline-block" style="cursor:pointer;font-size:15px;text-transform:none;white-space:nowrap;">
                 <div class="text-wrap">
                   <div style="transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-text">proszę o kontakt</div>
                   <div style="transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-text">proszę o kontakt</div>
                 </div>
                 <div class="icon-wrapper"><img style="transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" loading="lazy" alt="" src="images/arrow-right.svg" class="arrow-01"><img style="transform:translate3d(0px, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" loading="lazy" alt="" src="images/arrow-right.svg" class="arrow-01"></div>
-              </a>
+              </button>
             </form>
             <div class="success-message w-form-done">
               <div>Dziękujemy! Odezwiemy się wkrótce.</div>
@@ -1926,6 +1975,44 @@
       });
     })();
 
+  </script>
+  <script>
+    // Contact form — FormSubmit AJAX (no SMTP, no account needed)
+    (function() {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var done = document.querySelector('.w-form-done');
+        var fail = document.querySelector('.w-form-fail');
+        var btn = form.querySelector('button[type=submit]');
+        if (btn) btn.disabled = true;
+        fetch('https://formsubmit.co/ajax/kstryja@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            email: form.querySelector('[name=Email]').value,
+            telefon: form.querySelector('[name=Phone-Number]').value,
+            _subject: 'Nowe zapytanie — Szkoła Promptowania',
+            _captcha: 'false'
+          })
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.success === 'true' || data.success === true) {
+            form.style.display = 'none';
+            if (done) done.style.display = 'block';
+          } else {
+            if (fail) fail.style.display = 'block';
+            if (btn) btn.disabled = false;
+          }
+        })
+        .catch(function() {
+          if (fail) fail.style.display = 'block';
+          if (btn) btn.disabled = false;
+        });
+      });
+    })();
   </script>
 </body>
 </html>
