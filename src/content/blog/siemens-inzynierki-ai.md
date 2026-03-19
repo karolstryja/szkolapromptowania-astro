@@ -1,15 +1,19 @@
 ---
 title: Siemens Inżynierki 4.0 — AI Edition
 date: 2025-10-15
+excerpt: 30 studentek politechnik, dwa dni warsztatów i jedno pytanie — jak
+  nauczyć przyszłe inżynierki języka, którym mówi się do maszyn?
 image: images/blog/siemens/hero.jpg
-excerpt: 30 studentek politechnik, dwa dni warsztatów i jedno pytanie — jak nauczyć przyszłe inżynierki języka, którym mówi się do maszyn?
 gallery_layout: slider
-tags: [case study, siemens, warsztaty, prompt engineering]
+tags:
+  - case study
+  - siemens
+  - warsztaty
+  - prompt engineering
 ---
-
 37% miejsc na politechnikach zajmują kobiety. Ale tylko 15% absolwentek kierunków technicznych pracuje potem na stanowiskach inżynierskich. Te liczby to zmarnowany potencjał na skalę systemową.
 
-Siemens od siedmiu lat prowadzi program Inżynierki 4.0 — precyzyjnie zaprojektowany inkubator kompetencji dla studentek kierunków technicznych. Konkretne umiejętności, realna pewność siebie, praktyczne narzędzia.
+Siemens od siedmiu lat prowadzi program Inżynierki 4.0 precyzyjnie zaprojektowany inkubator kompetencji dla studentek kierunków technicznych. Konkretne umiejętności, realna pewność siebie, praktyczne narzędzia.
 
 W tym roku program dostał nowy wymiar: **AI Edition**.
 
@@ -47,9 +51,9 @@ To **fundamentalna umiejętność**: kontrolowanie perspektywy i tonu odpowiedzi
 
 Daliśmy im konkretne frameworki:
 
-- **COSTAR** — struktura do precyzyjnego definiowania kontekstu, celu i formatu odpowiedzi
-- **Chain of Thought** — wymuszanie myślenia krok po kroku, niezbędne przy złożonych problemach inżynierskich
-- **SCAMPER** — kreatywne poszukiwanie rozwiązań, idealne na etapie projektowania
+* **COSTAR** — struktura do precyzyjnego definiowania kontekstu, celu i formatu odpowiedzi
+* **Chain of Thought** — wymuszanie myślenia krok po kroku, niezbędne przy złożonych problemach inżynierskich
+* **SCAMPER** — kreatywne poszukiwanie rozwiązań, idealne na etapie projektowania
 
 Te frameworki działają niezależnie od narzędzia — ChatGPT, Claude, Gemini. Niezależnie od branży. Raz nauczony schemat myślenia zostaje na zawsze.
 
