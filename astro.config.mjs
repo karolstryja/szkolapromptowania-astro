@@ -1,6 +1,11 @@
 import { defineConfig } from 'astro/config';
 
+import vercel from '@astrojs/vercel';
+
 export default defineConfig({
-    site: 'https://szkolapromptowania.pl', // Example URL
-    output: 'static',
+  // Example URL
+  site: 'https://szkolapromptowania.pl',
+
+  output: 'static',
+  adapter: vercel(),
 });

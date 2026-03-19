@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/karolstryja/szkolapromptowania#readme",
   "dependencies": {
+    "@astrojs/vercel": "^10.0.1",
     "astro": "^6.0.6",
     "marked": "^17.0.4"
   }
