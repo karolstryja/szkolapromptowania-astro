@@ -36,9 +36,6 @@ Dziennikarstwo interwencyjne, poufne dane, wrażliwe tematy. Tu AI to **narzędz
 - Identyfikacja wzorców i powiązań między danymi
 - Automatyzacja transkrypcji i raportowania
 
-:::video
-images/blog/tvn/tvn-workshop-web.mp4
-:::
 
 ## Prawo i etyka — niepomijalny moduł
 
