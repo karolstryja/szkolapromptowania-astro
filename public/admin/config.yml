@@ -1,0 +1,21 @@
+backend:
+  name: git-gateway
+  branch: astro-migration # Repo branch to work on
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: "blog"
+    label: "Posty na Blogu"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Data Publikacji", name: "date", widget: "datetime", required: false}
+      - {label: "Zajawka (krótki tekst widoczny na liście)", name: "excerpt", widget: "text", required: false}
+      - {label: "Główne Zdjęcie", name: "image", widget: "image", required: false}
+      - {label: "Link do Wideo (Opcjonalnie)", name: "video", widget: "string", required: false}
+      - {label: "Tagi", name: "tags", widget: "list", required: false}
+      - {label: "Treść Posta", name: "body", widget: "markdown"}
