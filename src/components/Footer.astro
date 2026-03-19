@@ -1,5 +1,113 @@
 ---
 ---
+<style>
+    /* Footer decorative watermark — mimics original Slayed positioning */
+    .footer-inner-wrap {
+      overflow: hidden !important;
+      position: relative;
+    }
+    .footer-watermark {
+      position: absolute;
+      bottom: -30px;
+      right: -10px;
+      font-family: 'CreatoDisplay', sans-serif;
+      font-weight: 700;
+      font-size: 180px;
+      color: #2a2118;
+      opacity: 0.15;
+      line-height: 0.85;
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: -5px;
+      z-index: 0;
+    }
+    @media (max-width: 991px) {
+      .footer-watermark {
+        font-size: 120px;
+        bottom: -20px;
+        letter-spacing: -3px;
+      }
+    }
+    @media (max-width: 768px) {
+      .footer-watermark {
+        font-size: 80px;
+        bottom: -14px;
+        right: -5px;
+        letter-spacing: -2px;
+      }
+    }
+
+    /* Footer row layout — newsletter inline with menu */
+    .footer-row-layout {
+      flex-direction: column !important;
+      gap: 40px;
+    }
+    .footer-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-top-row .footer-list.v2 {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-legal-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-legal-row .footer-list.v1 {
+      margin-top: 0;
+    }
+    .footer-legal-row .footer-copy-write-text {
+      margin: 0;
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .footer-top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .footer-top-row .footer-list.v2 {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 10px 12px !important;
+        justify-content: flex-start !important;
+      }
+      .footer-list.left.v1 {
+        display: flex !important;
+        flex-wrap: wrap;
+        gap: 16px !important;
+        justify-content: flex-start !important;
+      }
+      .footer-legal-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .footer-copy-write-text {
+        font-size: 12px !important;
+        white-space: normal !important;
+        opacity: 0.7;
+      }
+    }
+    
+    /* Dark mode footer watermark */
+    [data-theme="dark"] .footer-watermark {
+      color: #2a2118;
+      opacity: 0.15;
+    }
+</style>
 <div class="footer">
   <section class="footer-inner-wrap">
     <div class="footer-watermark">szkoła promptowania</div>

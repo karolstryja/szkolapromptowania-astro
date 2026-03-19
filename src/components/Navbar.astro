@@ -1,7 +1,64 @@
 ---
 ---
-<div class="navbar">
-  <div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-no-shadow-container w-nav">
+<style>
+    /* Navbar — sticky top, always visible */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Navbar logo override */
+    .navbar-brand .image {
+      max-width: none;
+      max-height: none;
+      height: 44px;
+      width: auto;
+    }
+    .navbar-brand.w--current {
+      align-self: center !important;
+    }
+    .navber-menu-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    /* CTA button — filled amber, cohesive with logo */
+    .primary-btn-wrap {
+      background-color: var(--primary) !important;
+      border-color: var(--primary) !important;
+    }
+    .primary-btn-wrap .button-text {
+      color: #09080e !important;
+      text-transform: none !important;
+    }
+    .primary-btn-wrap .arrow-01 {
+      filter: brightness(0) !important;
+    }
+    .primary-btn-wrap:hover {
+      background-color: var(--primary-tint) !important;
+      border-color: var(--primary-tint) !important;
+    }
+
+    /* Theme override for dark mode */
+    [data-theme="dark"] .navbar {
+      background: rgba(9, 8, 14, 0.85);
+    }
+    [data-theme="dark"] .navbar-brand .image {
+      filter: invert(1);
+    }
+    [data-theme="dark"] .primary-btn-wrap .button-text {
+      color: #09080e !important;
+    }
+    [data-theme="dark"] .primary-btn-wrap .arrow-01 {
+      filter: brightness(0) !important;
+    }
+</style>
+<div data-w-id="4ee1c7c7-ccc0-8ece-ce20-e04073e44387" class="navbar">
+  <div data-w-id="4ee1c7c7-ccc0-8ece-ce20-e04073e44388" data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar-no-shadow-container w-nav">
     <div class="container">
       <div class="navbar-wrapper">
         <div class="navber-wrap">
