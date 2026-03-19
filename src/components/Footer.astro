@@ -75,32 +75,33 @@
       white-space: nowrap;
     }
     @media (max-width: 768px) {
-      .footer-top-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+      .footer-watermark {
+        font-size: 70px;
+        bottom: 20px !important; /* Raised as requested */
+        right: -5px;
+        letter-spacing: -2px;
       }
-      .footer-top-row .footer-list.v2 {
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 10px 12px !important;
-        justify-content: flex-start !important;
-      }
-      .footer-list.left.v1 {
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 16px !important;
-        justify-content: flex-start !important;
+      .footer-top-row, .footer-list.left.v1 {
+        display: none !important; /* Hide menu and socials on mobile */
       }
       .footer-legal-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 12px;
+        margin-top: -20px; /* Lift whole row up */
+      }
+      .footer-legal-row .footer-list.v1 {
+        margin-bottom: 0;
       }
       .footer-copy-write-text {
-        font-size: 12px !important;
-        white-space: normal !important;
-        opacity: 0.7;
+        display: none !important;
+      }
+      .mobile-only-name {
+        display: block !important;
+      }
+      .footer-list.v1 {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
     
@@ -139,6 +140,7 @@
         <div class="footer-legal-row">
           <ul role="list" class="footer-list v1">
             <li class="footer-list-item"><a href="/polityka-prywatnosci" class="footer-link">polityka prywatności</a></li>
+            <li class="footer-list-item mobile-only-name" style="display:none;"><span class="footer-link">szkoła promptowania</span></li>
           </ul>
           <p class="footer-copy-write-text">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
         </div>
