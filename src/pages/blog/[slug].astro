@@ -260,6 +260,12 @@ const showImage = !!imgSrc && !isHeroVideo && !videoSrc;
       .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
     }
 
+    @media (max-width: 768px) {
+      .blog-meta-tags {
+        display: none !important;
+      }
+    }
+
     /* ── Animations ── */
     .blog-article-body > * {
       opacity: 0;
