@@ -2,6 +2,7 @@ backend:
   name: github
   repo: karolstryja/szkolapromptowania-astro
   branch: main # Repo branch to work on
+  base_url: https://cms-auth-proxy.vercel.app # Placeholder for your OAuth proxy
 
 media_folder: "public/images/blog"
 public_folder: "/images/blog"
