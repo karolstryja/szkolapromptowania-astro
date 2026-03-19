@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: karolstryja/szkolapromptowania-astro
+  name: git-gateway
   branch: main # Repo branch to work on
 
 media_folder: "public/images/blog"
