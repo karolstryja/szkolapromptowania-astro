@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: karolstryja/szkolapromptowania-astro
-  branch: astro-migration # Repo branch to work on
+  branch: main # Repo branch to work on
 
 media_folder: "public/images/blog"
 public_folder: "/images/blog"
