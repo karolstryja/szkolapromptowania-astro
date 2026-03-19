@@ -155,8 +155,8 @@ const showImage = !!imgSrc && !isHeroVideo && !videoSrc;
       color: #1a1a1a;
     }
 
-    /* ── Headings ── */
-    .blog-article-body h2 {
+    /* ── Headings (Injected via set:html) ── */
+    .blog-article-body :global(h2) {
       font-size: 42px !important;
       font-weight: 700 !important;
       line-height: 1.2 !important;
@@ -164,7 +164,7 @@ const showImage = !!imgSrc && !isHeroVideo && !videoSrc;
       color: var(--text-primary);
       margin: 56px 0 20px 0;
     }
-    .blog-article-body h3 {
+    .blog-article-body :global(h3) {
       font-size: 32px !important;
       font-weight: 700 !important;
       line-height: 1.2 !important;
