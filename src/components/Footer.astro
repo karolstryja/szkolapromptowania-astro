@@ -2,9 +2,15 @@
 ---
 <style>
     /* Footer decorative watermark — mimics original Slayed positioning */
+    .footer {
+      background-color: #09080e !important; /* Force dark background at top level */
+    }
     .footer-inner-wrap {
       overflow: hidden !important;
       position: relative;
+      background-color: #09080e !important;
+      padding: 80px 0;
+      color: white;
     }
     .footer-watermark {
       position: absolute;
@@ -13,8 +19,7 @@
       font-family: 'CreatoDisplay', 'Inter', sans-serif;
       font-weight: 700;
       font-size: 180px;
-      color: #2a2118;
-      opacity: 0.15;
+      color: rgba(255, 255, 255, 0.05) !important;
       line-height: 0.85;
       white-space: nowrap;
       pointer-events: none;
@@ -23,23 +28,7 @@
       display: block !important;
       text-transform: lowercase;
     }
-    @media (max-width: 991px) {
-      .footer-watermark {
-        font-size: 120px;
-        bottom: -20px;
-        letter-spacing: -3px;
-      }
-    }
-    @media (max-width: 768px) {
-      .footer-watermark {
-        font-size: 80px;
-        bottom: -14px;
-        right: -5px;
-        letter-spacing: -2px;
-      }
-    }
-
-    /* Footer row layout — newsletter inline with menu */
+    
     .footer-row-layout {
       flex-direction: column !important;
       gap: 40px;
@@ -58,73 +47,117 @@
       gap: 28px;
       flex-wrap: wrap;
     }
+    .footer-link {
+      color: rgba(255,255,255,0.7) !important;
+      transition: color 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-link:hover {
+      color: var(--primary) !important;
+    }
+
     .footer-legal-row {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       width: 100%;
       gap: 24px;
       position: relative;
       z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 40px;
     }
-    .footer-legal-row .footer-list.v1 {
-      margin-top: 0;
-    }
-    .footer-legal-row .footer-copy-write-text {
+    .footer-copy-write-text {
       margin: 0;
       white-space: nowrap;
+      color: rgba(255,255,255,0.4) !important;
+      font-size: 13px;
     }
+
+    .footer-address-block {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ffffff !important;
+      text-align: right;
+      margin-bottom: 12px;
+      font-weight: 400;
+      opacity: 1 !important;
+      display: block !important;
+    }
+
+    .mobile-yellow-tile {
+      display: none;
+    }
+
     @media (max-width: 768px) {
-      .footer-watermark {
-        font-size: 70px;
-        bottom: 20px !important; /* Raised as requested */
-        right: -5px;
-        letter-spacing: -2px;
+      .footer-inner-wrap {
+        padding: 60px 0;
       }
-      .footer-top-row, .footer-list.left.v1 {
-        display: none !important; /* Hide menu and socials on mobile */
+      .footer-top-row, .footer-address-block {
+        display: none !important;
+      }
+      .mobile-yellow-tile {
+        display: block !important;
+        background-color: var(--primary) !important;
+        padding: 32px 24px !important;
+        border-radius: 24px !important;
+        margin-bottom: 48px !important;
+        color: #09080e !important;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      .mobile-yellow-tile .address-text {
+        font-size: 17px !important;
+        line-height: 1.4 !important;
+        font-weight: 700 !important;
+        margin-bottom: 24px !important;
+        color: #09080e !important;
+      }
+      .mobile-yellow-tile .footer-list.left.v1 {
+        display: flex !important;
+        flex-direction: row !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 20px !important;
+      }
+      .mobile-yellow-tile .social-image {
+        filter: brightness(0) !important;
+        width: 24px;
+        height: 24px;
       }
       .footer-legal-row {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
-        margin-top: -20px; /* Lift whole row up */
-      }
-      .footer-legal-row .footer-list.v1 {
-        margin-bottom: 0;
+        border-top: none;
+        padding-top: 0;
       }
       .footer-copy-write-text {
-        display: none !important;
-      }
-      .mobile-only-name {
+        text-align: left;
+        white-space: normal;
+        margin-top: 8px;
         display: block !important;
       }
-      .footer-list.v1 {
-        flex-direction: column;
-        align-items: flex-start;
+      .mobile-only-name span {
+        color: rgba(255,255,255,0.4) !important;
       }
     }
-    
-    .footer-address-block {
-      font-size: 13px;
-      line-height: 1.6;
-      opacity: 0.6;
-      color: var(--text-primary);
-      margin-top: 10px;
-    }
 
-    /* Dark mode footer watermark */
-    [data-theme="dark"] .footer-watermark {
-      color: #2a2118;
-      opacity: 0.15;
+    /* Dark mode override — keep it dark */
+    [data-theme="dark"] .footer,
+    [data-theme="dark"] .footer-inner-wrap {
+      background-color: #050507 !important;
     }
 </style>
+
 <div class="footer">
   <section class="footer-inner-wrap">
     <div class="footer-watermark">szkoła promptowania</div>
     <div class="w-layout-blockcontainer container v1 w-container">
       <div class="footer-form-wrap footer-row-layout">
-        <!-- Row 1: menu links -->
+        
+        <!-- Desktop Top Row: Menu & Socials -->
         <div class="footer-top-row">
           <ul role="list" class="footer-list v2">
             <li class="footer-list-item"><a href="/#Home" class="footer-link">start</a></li>
@@ -136,27 +169,47 @@
             <li class="footer-list-item"><a href="/#FAQ" class="footer-link">faq</a></li>
             <li class="footer-list-item"><a href="/#Contact" class="footer-link">kontakt</a></li>
           </ul>
+          <!-- Desktop Socials - White icons -->
+          <ul role="list" class="footer-list left v1">
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons.svg" loading="lazy" alt="X / Twitter" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_20837.svg" loading="lazy" alt="Facebook" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons-1.svg" loading="lazy" alt="Instagram" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_2111532.svg" loading="lazy" alt="LinkedIn" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+          </ul>
         </div>
-        <!-- Row 2: social icons -->
-        <ul role="list" class="footer-list left v1">
-          <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons.svg" loading="lazy" alt="X / Twitter" class="social-image"></a></li>
-          <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_20837.svg" loading="lazy" alt="Facebook" class="social-image"></a></li>
-          <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons-1.svg" loading="lazy" alt="Instagram" class="social-image"></a></li>
-          <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_2111532.svg" loading="lazy" alt="LinkedIn" class="social-image"></a></li>
-        </ul>
-        <!-- Row 3: legal + copyright -->
+
+        <!-- Mobile Yellow Tile (The "Card") -->
+        <div class="mobile-yellow-tile">
+          <div class="address-text">
+            Archetype Plus Sp. z o.o.<br/>
+            Plac Małachowskiego 2<br/>
+            00-066 Warszawa
+          </div>
+          <ul role="list" class="footer-list left v1">
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons.svg" loading="lazy" alt="X / Twitter" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_20837.svg" loading="lazy" alt="Facebook" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons-1.svg" loading="lazy" alt="Instagram" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_2111532.svg" loading="lazy" alt="LinkedIn" class="social-image"></a></li>
+          </ul>
+        </div>
+
+        <!-- Bottom Row: Legal + Right-aligned Address -->
         <div class="footer-legal-row">
           <ul role="list" class="footer-list v1">
             <li class="footer-list-item"><a href="/polityka-prywatnosci" class="footer-link">polityka prywatności</a></li>
             <li class="footer-list-item mobile-only-name" style="display:none;"><span class="footer-link">szkoła promptowania</span></li>
           </ul>
-          <div class="footer-address-block">
-            Archetype Plus Sp. z o.o.<br/>
-            Plac Małachowskiego 2<br/>
-            00-066 Warszawa
+          
+          <div style="display: flex; flex-direction: column; align-items: flex-end;">
+            <div class="footer-address-block">
+              Archetype Plus Sp. z o.o.<br/>
+              Plac Małachowskiego 2<br/>
+              00-066 Warszawa
+            </div>
+            <p class="footer-copy-write-text">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
           </div>
-          <p class="footer-copy-write-text">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
         </div>
+
       </div>
     </div>
   </section>
