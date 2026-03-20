@@ -3,12 +3,12 @@
 <style>
     /* Footer decorative watermark — mimics original Slayed positioning */
     .footer {
-      background-color: #09080e !important; /* Force dark background at top level */
+      background-color: #ffbd59 !important;
     }
     .footer-inner-wrap {
       overflow: hidden !important;
       position: relative;
-      background-color: #09080e !important;
+      background-color: #ffbd59 !important;
       padding: 80px 0;
       color: white;
     }
@@ -19,7 +19,7 @@
       font-family: 'CreatoDisplay', 'Inter', sans-serif;
       font-weight: 700;
       font-size: 180px;
-      color: rgba(255, 255, 255, 0.05) !important;
+      color: rgba(255, 255, 255, 0.15) !important;
       line-height: 0.85;
       white-space: nowrap;
       pointer-events: none;
@@ -48,12 +48,12 @@
       flex-wrap: wrap;
     }
     .footer-link {
-      color: rgba(255,255,255,0.7) !important;
+      color: #ffffff !important;
       transition: color 0.3s ease;
       text-decoration: none;
     }
     .footer-link:hover {
-      color: var(--primary) !important;
+      color: rgba(255,255,255,0.6) !important;
     }
 
     .footer-legal-row {
@@ -64,13 +64,13 @@
       gap: 24px;
       position: relative;
       z-index: 1;
-      border-top: 1px solid rgba(255,255,255,0.1);
+      border-top: 1px solid rgba(255,255,255,0.3);
       padding-top: 40px;
     }
     .footer-copy-write-text {
       margin: 0;
       white-space: nowrap;
-      color: rgba(255,255,255,0.4) !important;
+      color: rgba(255,255,255,0.7) !important;
       font-size: 13px;
     }
 
@@ -89,65 +89,97 @@
       display: none;
     }
 
+    .footer-address-mobile {
+      display: none;
+    }
+
     @media (max-width: 768px) {
       .footer-inner-wrap {
-        padding: 60px 0;
+        padding: 32px 0;
       }
-      .footer-top-row, .footer-address-block {
+      .footer-top-row, .footer-address-block,
+      .footer-copy-write-text {
         display: none !important;
       }
+      .footer-row-layout {
+        gap: 0 !important;
+        margin-top: 0 !important;
+      }
+      /* Ikony po lewej, minimalna przestrzeń nad nimi */
       .mobile-yellow-tile {
-        display: block !important;
-        background-color: var(--primary) !important;
-        padding: 32px 24px !important;
-        border-radius: 24px !important;
-        margin-bottom: 48px !important;
-        color: #09080e !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        background: none !important;
+        padding: 0 !important;
+        border-radius: 0 !important;
+        margin-bottom: 16px !important;
+        box-shadow: none !important;
+        width: 100%;
         position: relative;
         z-index: 2;
-        width: 100%;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      }
-      .mobile-yellow-tile .address-text {
-        font-size: 17px !important;
-        line-height: 1.4 !important;
-        font-weight: 700 !important;
-        margin-bottom: 24px !important;
-        color: #09080e !important;
       }
       .mobile-yellow-tile .footer-list.left.v1 {
         display: flex !important;
         flex-direction: row !important;
+        justify-content: flex-start !important;
         margin: 0 !important;
         padding: 0 !important;
-        gap: 20px !important;
+        gap: 18px !important;
       }
       .mobile-yellow-tile .social-image {
-        filter: brightness(0) !important;
-        width: 24px;
-        height: 24px;
+        filter: brightness(0) invert(1) !important;
+        width: 20px;
+        height: 20px;
       }
+      /* Dolny rząd: polityka (lewo) | adres (prawo) */
       .footer-legal-row {
-        flex-direction: column;
-        align-items: flex-start;
-        border-top: none;
-        padding-top: 0;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        justify-content: space-between !important;
+        border-top: none !important;
+        padding-top: 0 !important;
+        margin-top: 0 !important;
+        gap: 16px;
       }
-      .footer-copy-write-text {
-        text-align: left;
-        white-space: normal;
-        margin-top: 8px;
+      .footer-legal-row > ul {
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .footer-legal-row .footer-link {
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        color: rgba(255,255,255,0.75) !important;
+        white-space: nowrap;
+        line-height: 1.4;
+      }
+      .footer-address-mobile {
         display: block !important;
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        color: rgba(255,255,255,0.75) !important;
+        text-align: right;
+        line-height: 1.4;
       }
-      .mobile-only-name span {
-        color: rgba(255,255,255,0.4) !important;
+      .mobile-yellow-tile .social-image {
+        filter: brightness(0) invert(1) !important;
+        width: 24px !important;
+        height: 24px !important;
       }
     }
 
-    /* Dark mode override — keep it dark */
+    /* Desktop social icons — white */
+    @media (min-width: 769px) {
+      .footer-top-row .social-image {
+        filter: brightness(0) invert(1) !important;
+      }
+    }
+
+    /* Dark mode override — keep yellow on desktop */
     [data-theme="dark"] .footer,
     [data-theme="dark"] .footer-inner-wrap {
-      background-color: #050507 !important;
+      background-color: #ffbd59 !important;
     }
 </style>
 
@@ -171,25 +203,18 @@
           </ul>
           <!-- Desktop Socials - White icons -->
           <ul role="list" class="footer-list left v1">
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons.svg" loading="lazy" alt="X / Twitter" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_20837.svg" loading="lazy" alt="Facebook" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons-1.svg" loading="lazy" alt="Instagram" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_2111532.svg" loading="lazy" alt="LinkedIn" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="https://www.linkedin.com" class="social-link-block w-inline-block"><img src="/images/icon-linkedin.svg" loading="lazy" alt="LinkedIn" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="https://99twarzyAI.pl" class="social-link-block w-inline-block"><img src="/images/icon-podcast.svg" loading="lazy" alt="Podcast 99 twarzy AI" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
+            <li class="footer-list-item"><a href="https://rewolucjaai.com" class="social-link-block w-inline-block"><img src="/images/icon-blog.svg" loading="lazy" alt="Blog Rewolucja AI" class="social-image" style="filter: invert(1) brightness(2);"></a></li>
           </ul>
         </div>
 
-        <!-- Mobile Yellow Tile (The "Card") -->
+        <!-- Mobile icons row -->
         <div class="mobile-yellow-tile">
-          <div class="address-text">
-            Archetype Plus Sp. z o.o.<br/>
-            Plac Małachowskiego 2<br/>
-            00-066 Warszawa
-          </div>
           <ul role="list" class="footer-list left v1">
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons.svg" loading="lazy" alt="X / Twitter" class="social-image"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_20837.svg" loading="lazy" alt="Facebook" class="social-image"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/Social-Icons-1.svg" loading="lazy" alt="Instagram" class="social-image"></a></li>
-            <li class="footer-list-item"><a href="#" class="social-link-block w-inline-block"><img src="/images/fi_2111532.svg" loading="lazy" alt="LinkedIn" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="https://www.linkedin.com" class="social-link-block w-inline-block"><img src="/images/icon-linkedin.svg" loading="lazy" alt="LinkedIn" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="https://99twarzyAI.pl" class="social-link-block w-inline-block"><img src="/images/icon-podcast.svg" loading="lazy" alt="Podcast 99 twarzy AI" class="social-image"></a></li>
+            <li class="footer-list-item"><a href="https://rewolucjaai.com" class="social-link-block w-inline-block"><img src="/images/icon-blog.svg" loading="lazy" alt="Blog Rewolucja AI" class="social-image"></a></li>
           </ul>
         </div>
 
@@ -206,7 +231,8 @@
               Plac Małachowskiego 2<br/>
               00-066 Warszawa
             </div>
-            <p class="footer-copy-write-text">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
+            <span class="footer-address-mobile">Archetype Plus Sp. z o.o.<br/>Plac Małachowskiego 2, 00-066 Warszawa</span>
+            <p class="footer-copy-write-text"><span class="copyright-short">© 2026</span><span class="copyright-long"> Szkoła Promptowania. Wszelkie prawa zastrzeżone.</span></p>
           </div>
         </div>
 
