@@ -105,6 +105,14 @@
       }
     }
     
+    .footer-address-block {
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: 0.6;
+      color: var(--text-primary);
+      margin-top: 10px;
+    }
+
     /* Dark mode footer watermark */
     [data-theme="dark"] .footer-watermark {
       color: #2a2118;
@@ -112,13 +120,6 @@
     }
 </style>
 <div class="footer">
-  <style>
-    @media (max-width: 768px) {
-      .footer {
-        display: none !important;
-      }
-    }
-  </style>
   <section class="footer-inner-wrap">
     <div class="footer-watermark">szkoła promptowania</div>
     <div class="w-layout-blockcontainer container v1 w-container">
@@ -149,6 +150,11 @@
             <li class="footer-list-item"><a href="/polityka-prywatnosci" class="footer-link">polityka prywatności</a></li>
             <li class="footer-list-item mobile-only-name" style="display:none;"><span class="footer-link">szkoła promptowania</span></li>
           </ul>
+          <div class="footer-address-block">
+            Archetype Plus Sp. z o.o.<br/>
+            Plac Małachowskiego 2<br/>
+            00-066 Warszawa
+          </div>
           <p class="footer-copy-write-text">© 2026 Szkoła Promptowania. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
